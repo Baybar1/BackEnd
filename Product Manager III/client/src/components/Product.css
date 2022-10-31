@@ -1,0 +1,22 @@
+.container {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+
+p {
+    display: flex;
+    justify-content: center;
+    justify-content: space-between;
+    gap: 30px;
+    background-color: lightgray;
+    padding: 15px 5px;
+    border-radius: 5px;
+}
+
+.button {
+    padding: 10px 60px;
+    border-radius: 5px;
+    border: none;
+    background-color: lightgray;
+}

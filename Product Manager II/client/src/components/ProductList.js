@@ -17,6 +17,7 @@ export const ProductList = (props) => {
         })
     },[])
 
+    
 
     return (
         <div>
@@ -27,7 +28,9 @@ export const ProductList = (props) => {
                     
                     <div key = {index}>
                         
-                        <Link to = {`/product/${product._id}`}>{product.title}</Link>
+                        <Link to = {`/product/${product._id}`}>{product.title}</Link><br/>
+                        
+                        
                     </div>
                 )
                 

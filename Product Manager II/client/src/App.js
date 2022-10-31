@@ -4,6 +4,7 @@ import {BrowserRouter, Routes, Route, Link} from 'react-router-dom'
 import { Main } from './views/Main';
 import { Detail } from './components/Detail';
 
+
 function App() {
   return (
     <div className="App">
