@@ -13,7 +13,7 @@ export const Product = (props) => {
         axios.post('http://127.0.0.1:8000/api/product', {
             title,
             price,
-            description
+            description,
         })
         .then(res => {
             console.log(res)

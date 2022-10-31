@@ -6,8 +6,10 @@ export const ProductList = (props) => {
     const {product,setProduct} = props
 
     useEffect(() => {
-        axios.get('http://localhost:8000/api/product')
+        axios.get('http://127.0.0.1:8000/api/product')
         .then((res) => {
+            console.log(res)
+            console.log(res.data)
             setProduct(res.data)
         })
         .catch((err) => {
@@ -18,16 +20,20 @@ export const ProductList = (props) => {
 
     return (
         <div>
+            <h1>Products : </h1>
             {
-            product.length > 0 && product.map((item,index) => {
-                return(
+            product.map((product,index) => {
+                return (
+                    
                     <div key = {index}>
-                        <p>{item.title}</p>
-                        <Link to = {`/people/${product.id}`}>{item.title}</Link>
+                        
+                        <Link to = {`/product/${product._id}`}>{product.title}</Link>
                     </div>
                 )
-            })
+                
+                })
             }
-        </div>
+            
+            </div>
     )
 }

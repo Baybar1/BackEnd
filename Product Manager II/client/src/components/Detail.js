@@ -3,26 +3,26 @@ import React, {useState,useEffect} from 'react'
 import { useParams } from 'react-router-dom'
 
 export const Detail = () => {
-    const [product, setProduct] = useState({})
+    const [oneProduct, setOneProduct] = useState({})
     const {id} = useParams();
 
     useEffect(() => {
-        axios.get('http://localhost:8000/api/product/' + id)
+        axios.get('http://127.0.0.1:8000/api/product/' + id)
         .then((res) => {
             console.log(res.data)
-            setProduct(res.data)
+            setOneProduct(res.data)
         })
         .catch((err) => {
             console.log(err)
         })
-    },[])
+    },[id])
 
 
     return (
         <div>
-            {product.title}
-            {product.price}
-            {product.description}
+            {oneProduct.title}<br/>
+            ${oneProduct.price}<br/>
+            {oneProduct.description}
         </div>
     )
 }
