@@ -21,7 +21,7 @@ export const Update = () => {
     },[])
 
     const updateProduct = (e) => {
-        e.preventDefault('http://127.0.0.1:8000/api/product/' + id);
+        e.preventDefault();
         axios.put('http://127.0.0.1:8000/api/product/' + id, {
             title,
             price,
