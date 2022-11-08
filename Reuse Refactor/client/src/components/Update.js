@@ -5,24 +5,25 @@ import { Product } from './Product'
 import { DeleteButton } from './DeleteButton'
 
 export const Update = (props) => {
-    const { id } = useParams;
+    const { id } = useParams();
     const [product, setProduct] = useState({})
     const [loaded, setLoaded] = useState(false)
     const navigate = useNavigate();
 
     useEffect(() => {
-        axios.get(`http://127.0.0.1:8000/api/product/${id}`)
+        axios.get('http://127.0.0.1:8000/api/product/' + id)
             .then((res) => {
                 console.log(res)
                 setProduct(res.data)
                 setLoaded(true)
+                console.log(id)
             })
             .catch(err => console.log(err))
     }, [])
 
     const updateProduct = (productParam) => {
         axios.put('http://127.0.0.1:8000/api/product/' + id, productParam)
-            .then((res) => console.log(res))
+            .then((res) => console.log(res),navigate('/'))
             .catch(err => console.log(err))
             
     }

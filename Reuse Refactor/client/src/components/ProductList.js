@@ -1,10 +1,12 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import { DeleteButton } from './DeleteButton'
 
 export const ProductList = (props) => {
-    const [product,setProduct] = useState([])
+    // const [product,setProduct] = useState([])
+    const {product,setProduct} = props
+    
 
     useEffect(() => {
         axios.get('http://127.0.0.1:8000/api/product')
@@ -21,7 +23,7 @@ export const ProductList = (props) => {
     const deleteProduct = productId => {
         setProduct(product.filter(product=> product._id != productId));
     }
-
+    
 
     return (
         <div>
@@ -33,7 +35,7 @@ export const ProductList = (props) => {
                     <div key = {index}>
                         
                         <Link to = {`/product/${product._id}`}>{product.title}</Link><br/>
-                        <Link to = {`/product/${product._id}/edit`}>Edit</Link>
+                        <Link to = {`/product/edit/` + product._id}>Edit</Link>
                         <DeleteButton productId = {product._id} successCallBack = {() => deleteProduct(product._id)} />
                     </div>
                 )
