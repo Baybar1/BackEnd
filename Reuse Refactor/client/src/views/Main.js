@@ -32,7 +32,6 @@ export const Main = (props) => {
         .then(res => {
             console.log(res)
             console.log(res.data)
-            console.log('hgtr',[...product,res.data])
             setProduct([...product,res.data])
             
         })
